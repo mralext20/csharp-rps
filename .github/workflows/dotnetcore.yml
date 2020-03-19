@@ -8,9 +8,10 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    strategy:
+      matrix: 
+       os: [windows-latest, ubuntu-latest]
+    runs-on: ${{matrix.os}}
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
@@ -19,3 +20,10 @@ jobs:
         dotnet-version: 3.1.101
     - name: Build with dotnet
       run: dotnet build --configuration Release
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+      # Artifact name
+        name: "build.${{matrix.os}}"
+      # Directory containing files to upload
+        path: "./bin/Release/*/cs-day1.dll"
