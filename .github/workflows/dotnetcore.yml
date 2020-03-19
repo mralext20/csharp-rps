@@ -26,4 +26,4 @@ jobs:
       # Artifact name
         name: "build.${{matrix.os}}"
       # Directory containing files to upload
-        path: "./bin/Release/*/cs-day1.dll"
+        path: "./bin/Release/netcoreapp3.1/cs-day1.dll"
