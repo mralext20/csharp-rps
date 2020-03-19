@@ -75,7 +75,7 @@ namespace cs_day1
 
 
       end:
-        Console.WriteLine("does {name} wish to continue? (y/n)");
+        Console.WriteLine($"does {name} wish to continue? (y/n)");
         var answer = Console.ReadLine().Trim().ToLower();
         if (answer.StartsWith('n'))
         {
